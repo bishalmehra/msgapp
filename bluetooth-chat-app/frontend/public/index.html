@@ -12,18 +12,21 @@
   <body>
     <h1>Bluetooth Chat Frontend (Node.js)</h1>
     <p>This frontend is running with Node.js only.</p>
-    <p>Backend API base: <code>__BACKEND_URL__</code></p>
+    <p>Backend API base: <code id="backendUrl"></code></p>
     <pre id="health">Checking backend health...</pre>
     <script>
-      fetch("__BACKEND_URL__/health")
+      const BACKEND_URL = "https://bluetooth-backend.onrender.com";
+      document.getElementById("backendUrl").textContent = BACKEND_URL;
+
+      fetch(BACKEND_URL + "/health")
         .then((r) => r.json())
         .then((data) => {
           document.getElementById("health").textContent = JSON.stringify(data, null, 2);
         })
         .catch(() => {
           document.getElementById("health").textContent =
-            "Backend not reachable. Start FastAPI backend first.";
+            "Backend not reachable. Check backend URL.";
         });
     </script>
   </body>
-  </html>
+</html>
