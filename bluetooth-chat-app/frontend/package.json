@@ -1,0 +1,14 @@
+{
+  "name": "bluetooth-chat-frontend",
+  "version": "1.0.0",
+  "description": "Node.js frontend placeholder for Bluetooth chat project.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bluetooth-chat-app": "file:..",
+    "express": "^4.21.2"
+  }
+}

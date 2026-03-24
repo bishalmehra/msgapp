@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bluetooth Chat Frontend</title>
+    <style>
+      body { font-family: Arial, sans-serif; max-width: 700px; margin: 2rem auto; }
+      pre { background: #f4f4f4; padding: 0.75rem; border-radius: 6px; }
+    </style>
+  </head>
+  <body>
+    <h1>Bluetooth Chat Frontend (Node.js)</h1>
+    <p>This frontend is running with Node.js only.</p>
+    <p>Backend API base: <code>__BACKEND_URL__</code></p>
+    <pre id="health">Checking backend health...</pre>
+    <script>
+      fetch("__BACKEND_URL__/health")
+        .then((r) => r.json())
+        .then((data) => {
+          document.getElementById("health").textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(() => {
+          document.getElementById("health").textContent =
+            "Backend not reachable. Start FastAPI backend first.";
+        });
+    </script>
+  </body>
+  </html>
